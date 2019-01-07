@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-ctx.strokeStyle = "#BADA55";
+
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
@@ -13,13 +13,13 @@ ctx.lineWidth = 100;
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
-let hue = 0;
+let hue = 50;
 let direction = true;
 
 
 function draw(e) {
     if(!isDrawing) return;
-    console.log(e);
+    console.log(hue);
     ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX,lastY);
@@ -31,7 +31,7 @@ function draw(e) {
         hue = 0;
     }
 
-    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 10){
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 25){
         direction = !direction;
     }
     if(direction){
